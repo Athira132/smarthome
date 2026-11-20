@@ -30,9 +30,9 @@ const YouTubeIcon = () => (
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#F5F2EB] text-[#2C3238] pt-16 pb-12 border-t border-[#E2DDD3] relative overflow-hidden">
+    <footer className="bg-[#080A0C] text-[#E5E2DC] pt-16 pb-12 border-t border-[#C5A059]/20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-[#E2DDD3]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-4 flex flex-col gap-5">
             <Link to="/" className="inline-block group focus:outline-none">
@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               />
             </Link>
 
-            <p className="text-sm text-[#57606A] leading-relaxed max-w-sm">
+            <p className="text-sm text-[#A6A29A] leading-relaxed max-w-sm">
               Smart Homes Builders and Designers is a full-service architecture and design firm specializing in cost-effective building design, turning your vision into durable, beautiful, and functional reality.
             </p>
 
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Smart Homes on Facebook"
-                className="w-10 h-10 rounded-full bg-white hover:bg-[#B38E46] text-[#B38E46] hover:text-white border border-[#E2DDD3] shadow-xs flex items-center justify-center transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#C5A059] text-[#C5A059] hover:text-[#0B0D10] border border-[#C5A059]/30 flex items-center justify-center transition-all duration-300"
               >
                 <FacebookIcon />
               </a>
@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Smart Homes on Instagram"
-                className="w-10 h-10 rounded-full bg-white hover:bg-[#B38E46] text-[#B38E46] hover:text-white border border-[#E2DDD3] shadow-xs flex items-center justify-center transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#C5A059] text-[#C5A059] hover:text-[#0B0D10] border border-[#C5A059]/30 flex items-center justify-center transition-all duration-300"
               >
                 <InstagramIcon />
               </a>
@@ -72,7 +72,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Smart Homes on YouTube"
-                className="w-10 h-10 rounded-full bg-white hover:bg-[#B38E46] text-[#B38E46] hover:text-white border border-[#E2DDD3] shadow-xs flex items-center justify-center transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#C5A059] text-[#C5A059] hover:text-[#0B0D10] border border-[#C5A059]/30 flex items-center justify-center transition-all duration-300"
               >
                 <YouTubeIcon />
               </a>
@@ -81,37 +81,37 @@ export const Footer: React.FC = () => {
 
           {/* Navigation Quick Links */}
           <div className="lg:col-span-2">
-            <h3 className="font-display text-xs tracking-widest text-[#14171A] uppercase mb-4 font-bold pb-2 border-b border-[#B38E46]/40 inline-block">
+            <h3 className="font-display text-xs tracking-widest text-[#FAF9F5] uppercase mb-4 font-bold pb-2 border-b border-[#C5A059]/40 inline-block">
               Quick Links
             </h3>
             <ul className="flex flex-col gap-2.5 text-sm">
               <li>
-                <Link to="/" className="text-[#57606A] hover:text-[#B38E46] transition-colors flex items-center gap-1.5 font-medium">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B38E46]" />
+                <Link to="/" className="text-[#A6A29A] hover:text-[#C5A059] transition-colors flex items-center gap-1.5 font-medium">
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>Home</span>
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-[#57606A] hover:text-[#B38E46] transition-colors flex items-center gap-1.5 font-medium">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B38E46]" />
+                <Link to="/about" className="text-[#A6A29A] hover:text-[#C5A059] transition-colors flex items-center gap-1.5 font-medium">
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>About Us</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-[#57606A] hover:text-[#B38E46] transition-colors flex items-center gap-1.5 font-medium">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B38E46]" />
+                <Link to="/services" className="text-[#A6A29A] hover:text-[#C5A059] transition-colors flex items-center gap-1.5 font-medium">
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>Services</span>
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="text-[#57606A] hover:text-[#B38E46] transition-colors flex items-center gap-1.5 font-medium">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B38E46]" />
+                <Link to="/gallery" className="text-[#A6A29A] hover:text-[#C5A059] transition-colors flex items-center gap-1.5 font-medium">
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>Project Gallery</span>
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-[#57606A] hover:text-[#B38E46] transition-colors flex items-center gap-1.5 font-medium">
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B38E46]" />
+                <Link to="/contact" className="text-[#A6A29A] hover:text-[#C5A059] transition-colors flex items-center gap-1.5 font-medium">
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A059]" />
                   <span>Contact Us</span>
                 </Link>
               </li>
@@ -120,15 +120,15 @@ export const Footer: React.FC = () => {
 
           {/* Architectural Services List (All 12) */}
           <div className="lg:col-span-3">
-            <h3 className="font-display text-xs tracking-widest text-[#14171A] uppercase mb-4 font-bold pb-2 border-b border-[#B38E46]/40 inline-block">
+            <h3 className="font-display text-xs tracking-widest text-[#FAF9F5] uppercase mb-4 font-bold pb-2 border-b border-[#C5A059]/40 inline-block">
               Our 12 Services
             </h3>
-            <ul className="grid grid-cols-1 gap-2 text-xs text-[#57606A]">
+            <ul className="grid grid-cols-1 gap-2 text-xs text-[#A6A29A]">
               {SERVICES.map((s) => (
                 <li key={s.id}>
                   <Link
                     to="/services"
-                    className="hover:text-[#B38E46] transition-colors line-clamp-1"
+                    className="hover:text-[#C5A059] transition-colors line-clamp-1"
                   >
                     • {s.title}
                   </Link>
@@ -139,59 +139,59 @@ export const Footer: React.FC = () => {
 
           {/* Contact & Hours Column */}
           <div className="lg:col-span-3 flex flex-col gap-4">
-            <h3 className="font-display text-xs tracking-widest text-[#14171A] uppercase mb-1 font-bold pb-2 border-b border-[#B38E46]/40 inline-block">
+            <h3 className="font-display text-xs tracking-widest text-[#FAF9F5] uppercase mb-1 font-bold pb-2 border-b border-[#C5A059]/40 inline-block">
               Office & Hours
             </h3>
 
-            <div className="flex items-start gap-3 text-xs text-[#57606A] leading-relaxed">
-              <MapPin className="w-4 h-4 text-[#B38E46] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 text-xs text-[#A6A29A] leading-relaxed">
+              <MapPin className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-[#14171A] block">Smart Homes Office:</span>
+                <span className="font-semibold text-white block">Smart Homes Office:</span>
                 Ansar Complex, Kodikkunnu,<br />
                 Palakkad District, Kerala – 679305, India.
               </div>
             </div>
 
-            <div className="flex items-center gap-3 text-xs text-[#57606A]">
-              <Phone className="w-4 h-4 text-[#B38E46] shrink-0" />
+            <div className="flex items-center gap-3 text-xs text-[#A6A29A]">
+              <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
               <div className="flex flex-col">
-                <a href={`tel:${COMPANY_INFO.phones[0].raw}`} className="hover:text-[#B38E46] transition-colors font-medium">
+                <a href={`tel:${COMPANY_INFO.phones[0].raw}`} className="hover:text-[#C5A059] transition-colors font-medium">
                   {COMPANY_INFO.phones[0].display}
                 </a>
-                <a href={`tel:${COMPANY_INFO.phones[1].raw}`} className="hover:text-[#B38E46] transition-colors font-medium">
+                <a href={`tel:${COMPANY_INFO.phones[1].raw}`} className="hover:text-[#C5A059] transition-colors font-medium">
                   {COMPANY_INFO.phones[1].display}
                 </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 text-xs text-[#57606A]">
-              <Mail className="w-4 h-4 text-[#B38E46] shrink-0" />
+            <div className="flex items-center gap-3 text-xs text-[#A6A29A]">
+              <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
               <div className="flex flex-col">
-                <a href={`mailto:${COMPANY_INFO.emails[0]}`} className="hover:text-[#B38E46] transition-colors">
+                <a href={`mailto:${COMPANY_INFO.emails[0]}`} className="hover:text-[#C5A059] transition-colors">
                   {COMPANY_INFO.emails[0]}
                 </a>
-                <a href={`mailto:${COMPANY_INFO.emails[1]}`} className="hover:text-[#B38E46] transition-colors">
+                <a href={`mailto:${COMPANY_INFO.emails[1]}`} className="hover:text-[#C5A059] transition-colors">
                   {COMPANY_INFO.emails[1]}
                 </a>
               </div>
             </div>
 
             {/* Business Hours */}
-            <div className="flex items-start gap-3 text-xs text-[#57606A] pt-1">
-              <Clock className="w-4 h-4 text-[#B38E46] shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 text-xs text-[#A6A29A] pt-1">
+              <Clock className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
               <div>
-                <span className="text-[#14171A] font-semibold block">Working Hours:</span>
+                <span className="text-white font-semibold block">Working Hours:</span>
                 Mon – Sat: 9:00 AM – 7:00 PM<br />
-                <span className="text-[#96722E] font-medium">Sunday: Holiday</span>
+                <span className="text-[#C5A059] font-medium">Sunday: Holiday</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Footer Bottom / Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#756F62]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#827E77]">
           <div>
-            © {new Date().getFullYear()} <span className="text-[#14171A] font-semibold">Smart Homes Builders and Designers</span>. All rights reserved.
+            © {new Date().getFullYear()} <span className="text-[#FAF9F5] font-semibold">Smart Homes Builders and Designers</span>. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <span>Palakkad, Kerala</span>
@@ -200,7 +200,7 @@ export const Footer: React.FC = () => {
               href={COMPANY_INFO.map.googleMapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#57606A] hover:text-[#B38E46] transition-colors inline-flex items-center gap-1 font-medium"
+              className="text-[#A6A29A] hover:text-[#C5A059] transition-colors inline-flex items-center gap-1 font-medium"
             >
               <span>Google Maps</span>
               <ExternalLink className="w-3 h-3" />
