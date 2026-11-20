@@ -1,0 +1,444 @@
+import { Link } from 'react-router-dom';
+import {
+  ArrowRight,
+  Compass,
+  Coins,
+  UserCheck,
+  Maximize2,
+  Grid,
+  Award,
+  ShieldCheck,
+  FileText,
+  Leaf,
+  Sun,
+  CheckCircle2,
+  Sparkles,
+  ChevronRight
+} from 'lucide-react';
+import { COMPANY_INFO, SERVICES, WHY_CHOOSE_US, GALLERY_PROJECTS } from '../data/companyData';
+
+export const HomePage: React.FC = () => {
+  // Mapping icons dynamically for Why Choose Us
+  const getWhyIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'Coins': return <Coins className="w-5 h-5 text-[#C5A059]" />;
+      case 'UserCheck': return <UserCheck className="w-5 h-5 text-[#C5A059]" />;
+      case 'Maximize2': return <Maximize2 className="w-5 h-5 text-[#C5A059]" />;
+      case 'Compass': return <Compass className="w-5 h-5 text-[#C5A059]" />;
+      case 'Grid': return <Grid className="w-5 h-5 text-[#C5A059]" />;
+      case 'Award': return <Award className="w-5 h-5 text-[#C5A059]" />;
+      case 'ShieldCheck': return <ShieldCheck className="w-5 h-5 text-[#C5A059]" />;
+      case 'FileText': return <FileText className="w-5 h-5 text-[#C5A059]" />;
+      case 'Leaf': return <Leaf className="w-5 h-5 text-[#C5A059]" />;
+      case 'Sun': return <Sun className="w-5 h-5 text-[#C5A059]" />;
+      default: return <CheckCircle2 className="w-5 h-5 text-[#C5A059]" />;
+    }
+  };
+
+  // 6 preview services for homepage
+  const previewServices = SERVICES.slice(0, 6);
+
+  // 3 preview projects for homepage
+  const previewProjects = GALLERY_PROJECTS.slice(0, 3);
+
+  return (
+    <div className="flex flex-col w-full overflow-hidden">
+      {/* ============================================================ */}
+      {/* 1. HERO BANNER */}
+      {/* ============================================================ */}
+      <section className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        {/* Architectural Background Photography */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/hero/hero-architectural.jpg"
+            alt="Modern Luxury Kerala House Architecture"
+            className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out"
+          />
+          {/* Subtle multi-layer architectural dark overlays for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/75 to-[#080A0C]/60" />
+          <div className="absolute inset-0 bg-[#0B0D10]/30 backdrop-brightness-95" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center sm:text-left py-12">
+          <div className="max-w-3xl">
+            {/* Subtle Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/40 border border-[#C5A059]/40 backdrop-blur-md mb-6 animate-fade-in">
+              <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
+              <span className="text-xs uppercase tracking-[0.25em] text-[#E8E5DD] font-medium">
+                Premier Architecture & Construction • Palakkad, Kerala
+              </span>
+            </div>
+
+            {/* Main Hero Heading */}
+            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#FAF9F5] leading-[1.1] mb-6">
+              Designing Spaces.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F5] via-[#DFBA6D] to-[#C5A059]">
+                Building Dreams.
+              </span>
+            </h1>
+
+            {/* Short Description */}
+            <p className="text-base sm:text-xl text-[#D0CDC5] font-light leading-relaxed mb-10 max-w-2xl">
+              Thoughtfully designed spaces and quality construction solutions that turn your vision into reality.
+            </p>
+
+            {/* Hero CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Link
+                to="/services"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded bg-[#C5A059] hover:bg-[#D4AF37] text-[#0B0D10] font-bold text-xs uppercase tracking-widest shadow-xl shadow-[#C5A059]/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <span>Explore Our Services</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+
+              <Link
+                to="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded bg-white/5 hover:bg-white/10 text-[#FAF9F5] hover:text-[#C5A059] border border-white/20 hover:border-[#C5A059]/50 font-semibold text-xs uppercase tracking-widest backdrop-blur-sm transition-all"
+              >
+                <span>Contact Us</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Architectural Pillars / Features Ribbon */}
+        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[#0D1014]/80 backdrop-blur-md hidden md:block">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="grid grid-cols-4 gap-6 text-center text-xs text-[#A6A29A]">
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-[#C5A059] font-serif font-bold text-base">01</span>
+                <span>Cost-Effective Planning</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-[#C5A059] font-serif font-bold text-base">02</span>
+                <span>Vastu & Rule Compliant</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-[#C5A059] font-serif font-bold text-base">03</span>
+                <span>3D Elevation & Interiors</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-[#C5A059] font-serif font-bold text-base">04</span>
+                <span>Turnkey Supervision</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 2. ABOUT INTRODUCTION (ASYMMETRIC EDITORIAL LAYOUT) */}
+      {/* ============================================================ */}
+      <section className="py-24 bg-[#0B0D10] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Asymmetric Image Composition */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative z-10 rounded-2xl overflow-hidden border border-[#C5A059]/30 shadow-2xl group">
+                <img
+                  src="/images/about/about-home.jpg"
+                  alt="Modern Minimalist Kerala Architectural Facade"
+                  className="w-full h-[460px] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+              </div>
+
+              {/* Offset Accent Card */}
+              <div className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-6 z-20 bg-[#12161C] border border-[#C5A059]/40 p-5 sm:p-6 rounded-xl shadow-2xl max-w-[260px] sm:max-w-[280px]">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-[#C5A059]/15 flex items-center justify-center text-[#C5A059]">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="block text-xs uppercase tracking-widest text-[#C5A059] font-semibold">Architectural</span>
+                    <span className="block text-sm font-bold text-white">Full-Service Firm</span>
+                  </div>
+                </div>
+                <p className="text-[11px] text-[#A6A29A] leading-relaxed">
+                  Accessible, cost-effective design tailored around your family's budget and lifestyle.
+                </p>
+              </div>
+
+              {/* Background architectural stroke frame */}
+              <div className="absolute -top-4 -left-4 w-full h-full border border-white/10 rounded-2xl pointer-events-none -z-0" />
+            </div>
+
+            {/* Asymmetric Content */}
+            <div className="lg:col-span-6 flex flex-col items-start lg:pl-6">
+              <span className="text-xs uppercase tracking-[0.3em] text-[#C5A059] font-semibold mb-3">
+                About Smart Homes
+              </span>
+
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FAF9F5] leading-tight mb-6">
+                Exceptional Architecture, Thoughtfully Budgeted.
+              </h2>
+
+              <div className="space-y-4 text-sm sm:text-base text-[#D0CDC5] font-light leading-relaxed mb-8">
+                <p>
+                  <strong className="text-white font-medium">Smart Homes Builders and Designers</strong> is a full-service architecture and design firm specializing in cost-effective building design.
+                </p>
+                <p>
+                  We believe that exceptional architecture should be accessible to everyone. Our goal is to create beautiful, functional and thoughtfully planned spaces while respecting our clients' budgets.
+                </p>
+                <p>
+                  From architectural planning and 3D design to interior design, construction supervision and project execution, we bring together experience and creativity to make your dream spaces a reality.
+                </p>
+              </div>
+
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-3 px-6 py-3.5 rounded bg-white/5 hover:bg-[#C5A059] text-white hover:text-[#0B0D10] border border-[#C5A059]/40 hover:border-[#C5A059] text-xs uppercase tracking-widest font-semibold transition-all duration-300"
+              >
+                <span>About Us</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 3. WHY CHOOSE US (10 POINTS IN A VISUAL GRID) */}
+      {/* ============================================================ */}
+      <section className="py-24 bg-[#0D1014] relative border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-[0.3em] text-[#C5A059] font-semibold mb-3 block">
+              Our Core Strengths
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FAF9F5] mb-5">
+              Why Choose Smart Homes?
+            </h2>
+            <p className="text-sm sm:text-base text-[#A6A29A] font-light leading-relaxed">
+              We combine creative thinking, practical planning and professional expertise to deliver architectural solutions that balance beauty, functionality and affordability.
+            </p>
+          </div>
+
+          {/* 10 Points Attractive Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+            {WHY_CHOOSE_US.map((item) => (
+              <div
+                key={item.id}
+                className="group p-6 rounded-xl bg-[#12161C] border border-white/5 hover:border-[#C5A059]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-lg bg-white/5 group-hover:bg-[#C5A059]/15 border border-white/10 group-hover:border-[#C5A059]/30 flex items-center justify-center mb-4 transition-colors">
+                    {getWhyIcon(item.iconName)}
+                  </div>
+                  <h3 className="font-display text-base font-semibold text-[#FAF9F5] group-hover:text-[#C5A059] transition-colors mb-2 leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#A6A29A] font-light leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 4. OUR SERVICES PREVIEW */}
+      {/* ============================================================ */}
+      <section className="py-24 bg-[#0B0D10] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span className="text-xs uppercase tracking-[0.3em] text-[#C5A059] font-semibold mb-3 block">
+                Comprehensive Solutions
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FAF9F5]">
+                Our Architectural Services
+              </h2>
+            </div>
+
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#C5A059] hover:text-white font-semibold transition-colors pb-1 border-b border-[#C5A059]/40 hover:border-white"
+            >
+              <span>View All 12 Services</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Service Cards Grid (Preview 6 of 12) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {previewServices.map((service) => (
+              <div
+                key={service.id}
+                className="group rounded-xl overflow-hidden bg-[#12161C] border border-white/10 hover:border-[#C5A059]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col"
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12161C] via-transparent to-transparent opacity-80" />
+                </div>
+
+                <div className="p-6 flex flex-col flex-1 justify-between">
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-[#FAF9F5] group-hover:text-[#C5A059] transition-colors mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#A6A29A] leading-relaxed mb-6 font-light">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <Link
+                    to="/services"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider text-[#C5A059] group-hover:text-white transition-colors"
+                  >
+                    <span>Explore Service</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* All Services CTA Button */}
+          <div className="text-center mt-12">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded bg-[#C5A059] hover:bg-[#D4AF37] text-[#0B0D10] font-bold text-xs uppercase tracking-widest transition-all shadow-lg hover:shadow-[#C5A059]/20"
+            >
+              <span>Explore All 12 Architectural Services</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 5. FEATURED PROJECTS / GALLERY PREVIEW */}
+      {/* ============================================================ */}
+      <section className="py-24 bg-[#080A0C] border-y border-white/5 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+            <div>
+              <span className="text-xs uppercase tracking-[0.3em] text-[#C5A059] font-semibold mb-3 block">
+                Portfolio Preview
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FAF9F5]">
+                Featured Architecture & Projects
+              </h2>
+            </div>
+
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-white/5 hover:bg-[#C5A059] text-white hover:text-[#0B0D10] border border-[#C5A059]/30 text-xs uppercase tracking-widest font-semibold transition-all"
+            >
+              <span>Explore All Projects</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* 3 Project Preview Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {previewProjects.map((project) => (
+              <Link
+                key={project.id}
+                to="/gallery"
+                className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-[#C5A059]/50 transition-all duration-300 block"
+              >
+                <div className="aspect-[3/2] overflow-hidden bg-black">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5 bg-[#0D1014] flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] uppercase tracking-widest text-[#C5A059] font-medium block mb-1">
+                      {project.category}
+                    </span>
+                    <h3 className="font-display text-base font-semibold text-white group-hover:text-[#C5A059] transition-colors line-clamp-1">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <span className="text-xs text-[#A6A29A] mt-2 inline-flex items-center gap-1 group-hover:text-white transition-colors">
+                    <span>View in Lightbox</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 6. OUR MISSION */}
+      {/* ============================================================ */}
+      <section className="py-24 bg-[#0B0D10] relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="w-14 h-14 rounded-full bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center mx-auto mb-6 text-[#C5A059]">
+            <Compass className="w-7 h-7" />
+          </div>
+
+          <span className="text-xs uppercase tracking-[0.3em] text-[#C5A059] font-semibold mb-4 block">
+            Our Purpose & Vision
+          </span>
+
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#FAF9F5] leading-tight mb-8">
+            Making Better Spaces Accessible to Everyone
+          </h2>
+
+          <div className="max-w-3xl mx-auto space-y-5 text-sm sm:text-base text-[#D0CDC5] font-light leading-relaxed">
+            <p>
+              Our mission is to provide high-quality, cost-effective home extension, renovation and construction solutions.
+            </p>
+            <p>
+              Whether you are planning additional floors, expanding your kitchen or bathroom, renovating an existing space or building a new home, we bring the experience and expertise needed to make your project successful.
+            </p>
+            <p className="text-[#FAF9F5] font-medium">
+              We are passionate about creating beautiful, functional and comfortable spaces.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 7. CALL TO ACTION (BOTTOM FULL WIDTH) */}
+      {/* ============================================================ */}
+      <section className="py-20 bg-gradient-to-r from-[#12161C] via-[#181E26] to-[#12161C] border-t border-[#C5A059]/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#FAF9F5] mb-4">
+            Let's Build Something Beautiful Together.
+          </h2>
+
+          <p className="text-sm sm:text-lg text-[#D0CDC5] font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+            Have a project in mind? Let's discuss your ideas and bring your dream space to life.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded bg-[#C5A059] hover:bg-[#D4AF37] text-[#0B0D10] font-bold text-xs uppercase tracking-widest transition-all shadow-xl shadow-[#C5A059]/20"
+            >
+              <span>Get in Touch</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <a
+              href={`tel:${COMPANY_INFO.phones[0].raw}`}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded bg-white/5 hover:bg-white/10 text-white border border-white/20 text-xs uppercase tracking-widest font-semibold transition-all"
+            >
+              <span>Call Us: {COMPANY_INFO.phones[0].display}</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
