@@ -13,7 +13,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 export function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-[#0B0D10] text-[#E5E2DC] selection:bg-[#C5A059] selection:text-[#0B0D10] relative">
+      <div className="flex flex-col min-h-screen bg-[#FAF8F5] text-[#1E2227] selection:bg-[#B38E46] selection:text-white relative">
         <ScrollToTop />
         <Navbar />
         
