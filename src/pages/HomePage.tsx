@@ -40,66 +40,69 @@ export const HomePage: React.FC = () => {
   return (
     <div className="flex flex-col w-full overflow-hidden">
       {/* ============================================================ */}
-      {/* 1. HERO BANNER - OFFICE PHOTO FULLY VISIBLE, SHADE ONLY BEHIND TEXT */}
+      {/* 1. HERO BANNER - CINEMATIC LEFT-TO-RIGHT GRADIENT, NO TEXT BOX */}
       {/* ============================================================ */}
       <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-start pt-28 pb-16 overflow-hidden bg-[#0B0D10]">
-        {/* Full-width Office Photograph - Clear & Un-darkened */}
+        {/* Full-width Office Photograph - Clear & Sharp */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero/hero-office.jpg"
             alt="Smart Homes Builders and Designers Office Headquarters"
-            className="w-full h-full object-cover object-center sm:object-[center_35%]"
+            className="w-full h-full object-cover object-[center_35%]"
           />
+          {/* Cinematic Left-to-Right Dark Gradient: Starts dark on left, dissolves smoothly toward right */}
+          <div className="absolute inset-0 hero-gradient-home pointer-events-none" />
           {/* Subtle bottom transition line into the dark theme */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0B0D10] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0B0D10] to-transparent pointer-events-none" />
         </div>
 
-        {/* Compact Hero Text Container with Translucent Shade ONLY Behind Heading */}
+        {/* Hero Text Positioned Naturally on the Left - NO BOX, NO CARD, NO BORDER */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
-          <div className="max-w-xl p-6 sm:p-8 rounded-2xl bg-[#080A0C]/85 backdrop-blur-md border border-[#C5A059]/30 shadow-2xl">
+          <div className="max-w-xl flex flex-col items-start text-left">
             {/* Subtle Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-[#C5A059]/40 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#C5A059] animate-pulse" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#E8E5DD] font-medium">
+            <div className="animate-hero-heading inline-flex items-center gap-2 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+              <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-medium">
                 Smart Homes • Palakkad, Kerala
               </span>
             </div>
 
-            {/* Short Heading (Moderate size, no oversized typography) */}
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#FAF9F5] leading-tight mb-3">
+            {/* Short Heading (White, elegant display font, moderate size) */}
+            <h1 className="animate-hero-heading font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-3 sm:mb-4 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
               Designing Better Spaces.
             </h1>
 
             {/* One Short Sentence Description */}
-            <p className="text-xs sm:text-sm text-[#D0CDC5] font-light leading-relaxed mb-6">
+            <p className="animate-hero-desc text-xs sm:text-sm text-[#D0CDC5] font-light leading-relaxed mb-6 max-w-md drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
               Thoughtfully designed spaces and quality construction solutions that turn your vision into reality.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3">
+            {/* Minimal Action Buttons */}
+            <div className="animate-hero-buttons flex flex-wrap items-center gap-3">
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#C5A059] hover:bg-[#D4AF37] text-[#0B0D10] font-bold text-xs uppercase tracking-widest shadow-md transition-all active:scale-95"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#C5A059] hover:bg-[#D4AF37] text-[#0B0D10] font-bold text-xs uppercase tracking-widest shadow-lg shadow-black/40 transition-all hover:-translate-y-0.5 active:translate-y-0"
               >
-                <span>Explore Our Services</span>
+                <span>Explore Services</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded bg-white/10 hover:bg-white/20 text-[#FAF9F5] hover:text-[#C5A059] border border-white/20 text-xs uppercase tracking-widest font-semibold transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-white/10 hover:bg-white/20 text-[#FAF9F5] hover:text-[#C5A059] border border-white/20 text-xs uppercase tracking-widest font-semibold transition-all hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>Contact Us</span>
               </Link>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Bottom Feature Ribbon (Dark Theme) */}
-        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[#080A0C]/90 backdrop-blur-md hidden md:block z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-            <div className="grid grid-cols-4 gap-6 text-center text-xs text-[#A6A29A]">
-              <div className="flex items-center justify-center gap-2">
+      {/* Feature Ribbon (Positioned cleanly below hero to prevent obscuring photo) */}
+      <div className="border-y border-white/10 bg-[#080A0C] hidden md:block z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+          <div className="grid grid-cols-4 gap-6 text-center text-xs text-[#A6A29A]">
+            <div className="flex items-center justify-center gap-2">
                 <span className="text-[#C5A059] font-serif font-bold text-base">01</span>
                 <span>Cost-Effective Planning</span>
               </div>
@@ -118,7 +121,6 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
 
       {/* ============================================================ */}
       {/* 2. ABOUT INTRODUCTION (ASYMMETRIC EDITORIAL LAYOUT) */}

@@ -11,7 +11,7 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="flex flex-col w-full overflow-hidden pt-20">
       {/* ============================================================ */}
-      {/* 1. HERO BANNER - CLEAR PHOTOGRAPH, SHADE ONLY BEHIND TEXT */}
+      {/* 1. HERO BANNER - CINEMATIC LEFT-TO-RIGHT GRADIENT, NO TEXT BOX */}
       {/* ============================================================ */}
       <section className="relative min-h-[50vh] sm:min-h-[56vh] flex items-center justify-start py-16 bg-[#0B0D10] border-b border-white/10 overflow-hidden">
         {/* Architectural Background Photography - Bright & Clear */}
@@ -21,22 +21,27 @@ export const AboutPage: React.FC = () => {
             alt="Modern Luxury Kerala House Architectural Design"
             className="w-full h-full object-cover object-center"
           />
+          {/* Cinematic Left-to-Right Dark Gradient */}
+          <div className="absolute inset-0 hero-gradient-subpage pointer-events-none" />
           {/* Subtle bottom transition line into the dark theme */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0B0D10] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0B0D10] to-transparent pointer-events-none" />
         </div>
 
-        {/* Compact Shade Box ONLY Behind Heading Area */}
+        {/* Hero Text Naturally on Left - NO BOX, NO CARD, NO BORDER */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-xl p-6 sm:p-8 rounded-2xl bg-[#080A0C]/85 backdrop-blur-md border border-[#C5A059]/30 shadow-2xl">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-bold mb-2 block">
-              About Smart Homes
-            </span>
+          <div className="max-w-xl flex flex-col items-start text-left">
+            <div className="animate-hero-heading inline-flex items-center gap-2 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+              <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-medium">
+                About Smart Homes
+              </span>
+            </div>
             {/* Short Heading */}
-            <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FAF9F5] mb-3 leading-tight">
+            <h1 className="animate-hero-heading font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
               Built on Thoughtful Design.
             </h1>
             {/* One short sentence description */}
-            <p className="text-xs sm:text-sm text-[#D0CDC5] font-light leading-relaxed">
+            <p className="animate-hero-desc text-xs sm:text-sm text-[#D0CDC5] font-light leading-relaxed max-w-lg drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
               Full-service architecture and design committed to delivering beautiful, functional, and cost-effective building solutions.
             </p>
           </div>

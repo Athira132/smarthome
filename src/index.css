@@ -68,10 +68,105 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.hero-shade-box {
-  background: rgba(8, 10, 13, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(197, 160, 89, 0.25);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+/* Cinematic Left-to-Right Hero Gradients */
+.hero-gradient-home {
+  background: linear-gradient(
+    90deg,
+    rgba(5, 7, 9, 0.94) 0%,
+    rgba(5, 7, 9, 0.78) 28%,
+    rgba(5, 7, 9, 0.38) 52%,
+    rgba(5, 7, 9, 0.08) 72%,
+    transparent 100%
+  );
+}
+
+.hero-gradient-subpage {
+  background: linear-gradient(
+    90deg,
+    rgba(5, 7, 9, 0.92) 0%,
+    rgba(5, 7, 9, 0.72) 28%,
+    rgba(5, 7, 9, 0.32) 50%,
+    rgba(5, 7, 9, 0.06) 70%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 767px) {
+  .hero-gradient-home {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 7, 9, 0.90) 0%,
+      rgba(5, 7, 9, 0.60) 48%,
+      rgba(5, 7, 9, 0.10) 80%,
+      transparent 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 7, 9, 0.88) 0%,
+      rgba(5, 7, 9, 0.45) 65%,
+      transparent 100%
+    );
+  }
+
+  .hero-gradient-subpage {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 7, 9, 0.88) 0%,
+      rgba(5, 7, 9, 0.55) 48%,
+      rgba(5, 7, 9, 0.08) 80%,
+      transparent 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 7, 9, 0.85) 0%,
+      rgba(5, 7, 9, 0.40) 65%,
+      transparent 100%
+    );
+  }
+}
+
+/* Subtle entrance animations for hero text elements */
+@keyframes heroSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-hero-heading {
+  animation: heroSlideInLeft 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-hero-desc {
+  animation: heroFadeInUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-hero-buttons {
+  animation: heroFadeIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  opacity: 0;
 }
