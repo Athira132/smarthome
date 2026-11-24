@@ -6,10 +6,49 @@ import {
   Target
 } from 'lucide-react';
 import { OUR_APPROACH, WHY_CHOOSE_US } from '../data/companyData';
+import { SEOHead } from '../components/common/SEOHead';
 
 export const AboutPage: React.FC = () => {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Smart Homes Builders And Designers",
+    "description": "Learn about Smart Homes Builders And Designers, providing thoughtful architectural planning, house design, building design and construction-related solutions in Palakkad, Kerala.",
+    "url": "https://smarthomesbuilders.in/about",
+    "mainEntity": {
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Smart Homes Builders And Designers",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ansar Complex, Kodikkunnu",
+        "addressLocality": "Palakkad",
+        "addressRegion": "Kerala",
+        "postalCode": "679305",
+        "addressCountry": "IN"
+      },
+      "telephone": "+919539221066",
+      "email": "smarthomes.bdofficial@gmail.com"
+    }
+  };
+
   return (
     <div className="flex flex-col w-full overflow-hidden pt-20">
+      <SEOHead
+        title="About Smart Homes Builders And Designers | Architectural Design Company in Palakkad"
+        description="Learn about Smart Homes Builders And Designers, providing thoughtful architectural planning, house design, building design and construction-related solutions in Palakkad, Kerala."
+        canonicalUrl="https://smarthomesbuilders.in/about"
+        keywords={[
+          'Architectural Design Company in Palakkad',
+          'Building Designers in Palakkad',
+          'Architectural Planning Services',
+          'House Design in Kerala',
+          'Residential Architecture',
+          'Architects in Palakkad',
+          'House Plan Design in Palakkad'
+        ]}
+        schema={aboutSchema}
+      />
+
       {/* ============================================================ */}
       {/* 1. HERO BANNER - CINEMATIC LEFT-TO-RIGHT GRADIENT, NO TEXT BOX */}
       {/* ============================================================ */}
@@ -18,7 +57,7 @@ export const AboutPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero/hero-about.jpg"
-            alt="Modern Luxury Kerala House Architectural Design"
+            alt="About Smart Homes Builders And Designers - Architectural Design Company in Palakkad"
             className="w-full h-full object-cover object-center"
           />
           {/* Cinematic Left-to-Right Dark Gradient */}
@@ -33,16 +72,16 @@ export const AboutPage: React.FC = () => {
             <div className="animate-hero-heading inline-flex items-center gap-2 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
               <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-medium">
-                About Smart Homes
+                About Smart Homes • Palakkad, Kerala
               </span>
             </div>
-            {/* Short Heading */}
+            {/* Single H1 on page */}
             <h1 className="animate-hero-heading font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-              Built on Thoughtful Design.
+              Architectural Design Company in Palakkad
             </h1>
             {/* One short sentence description */}
             <p className="animate-hero-desc text-xs sm:text-sm text-[#D0CDC5] font-light leading-relaxed max-w-lg drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-              Full-service architecture and design committed to delivering beautiful, functional, and cost-effective building solutions.
+              Learn about Smart Homes Builders And Designers, providing thoughtful architectural planning, house design, building design and construction-related solutions in Palakkad, Kerala.
             </p>
           </div>
         </div>

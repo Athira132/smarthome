@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Maximize2, ShieldCheck } from 'lucide-react';
 import { GALLERY_PROJECTS } from '../data/companyData';
 import { Lightbox } from '../components/gallery/Lightbox';
+import { SEOHead } from '../components/common/SEOHead';
 
 export const GalleryPage: React.FC = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -12,8 +13,38 @@ export const GalleryPage: React.FC = () => {
     setLightboxOpen(true);
   };
 
+  const gallerySchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "House Designs & Architectural Projects in Kerala",
+    "description": "Explore house designs, architectural projects, modern building concepts and residential design work by Smart Homes Builders And Designers in Palakkad, Kerala.",
+    "url": "https://smarthomesbuilders.in/gallery",
+    "hasPart": GALLERY_PROJECTS.map((project) => ({
+      "@type": "ImageObject",
+      "name": project.title,
+      "caption": project.alt || project.subtitle,
+      "contentUrl": `https://smarthomesbuilders.in${project.image}`
+    }))
+  };
+
   return (
     <div className="flex flex-col w-full overflow-hidden pt-20">
+      <SEOHead
+        title="House Designs & Architectural Projects in Kerala | Smart Homes Builders"
+        description="Explore house designs, architectural projects, modern building concepts and residential design work by Smart Homes Builders And Designers in Palakkad, Kerala."
+        canonicalUrl="https://smarthomesbuilders.in/gallery"
+        keywords={[
+          'House Designs in Kerala',
+          'Architectural Projects in Kerala',
+          'Modern House Designs',
+          'House Design in Palakkad',
+          'Residential Building Designs',
+          'Architects in Palakkad',
+          'Villa Design in Palakkad'
+        ]}
+        schema={gallerySchema}
+      />
+
       {/* ============================================================ */}
       {/* 1. HERO BANNER - CINEMATIC LEFT-TO-RIGHT GRADIENT, NO TEXT BOX */}
       {/* ============================================================ */}
@@ -22,7 +53,7 @@ export const GalleryPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero/hero-gallery.jpg"
-            alt="Visually Impressive Completed Architectural Project"
+            alt="House Designs & Architectural Projects in Kerala by Smart Homes Builders"
             className="w-full h-full object-cover object-center"
           />
           {/* Cinematic Left-to-Right Dark Gradient */}
@@ -37,16 +68,16 @@ export const GalleryPage: React.FC = () => {
             <div className="animate-hero-heading inline-flex items-center gap-2 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
               <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-medium">
-                Architectural Portfolio
+                Smart Homes • Palakkad, Kerala
               </span>
             </div>
-            {/* Short Heading */}
+            {/* Single H1 on page */}
             <h1 className="animate-hero-heading font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-              Spaces That Inspire.
+              House Designs & Architectural Projects in Kerala
             </h1>
             {/* One short sentence description */}
             <p className="animate-hero-desc text-xs sm:text-sm text-[#D0CDC5] font-light leading-relaxed max-w-lg drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-              A curated showcase of our residential, contemporary villa, and commercial architecture.
+              Explore house designs, architectural projects, modern building concepts and residential design work by Smart Homes Builders And Designers in Palakkad, Kerala.
             </p>
           </div>
         </div>
@@ -82,7 +113,7 @@ export const GalleryPage: React.FC = () => {
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#07090B] flex items-center justify-center p-1.5 sm:p-2.5">
                   <img
                     src={project.image}
-                    alt="Smart Homes Architectural Project"
+                    alt={project.alt || `${project.title} - House Design in Kerala by Smart Homes`}
                     className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     loading="lazy"
                   />

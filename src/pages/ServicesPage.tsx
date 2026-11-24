@@ -17,6 +17,7 @@ import {
   Phone
 } from 'lucide-react';
 import { SERVICES, COMPANY_INFO } from '../data/companyData';
+import { SEOHead } from '../components/common/SEOHead';
 
 export const ServicesPage: React.FC = () => {
   const getServiceIcon = (iconName: string) => {
@@ -37,8 +38,36 @@ export const ServicesPage: React.FC = () => {
     }
   };
 
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Architectural Design and Construction Services in Palakkad",
+    "description": "Comprehensive architectural design, residential and commercial building design, 3D elevation, and turnkey construction services by Smart Homes in Palakkad, Kerala.",
+    "itemListElement": SERVICES.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": service.title,
+      "url": `https://smarthomesbuilders.in/services/${service.id}`
+    }))
+  };
+
   return (
     <div className="flex flex-col w-full overflow-hidden pt-20">
+      <SEOHead
+        title="Architectural Design & Construction Services in Palakkad | Smart Homes"
+        description="Explore architectural design, residential and commercial building design, interior design, 3D elevation, renovation, building approvals and construction services in Palakkad."
+        canonicalUrl="https://smarthomesbuilders.in/services"
+        keywords={[
+          'Architectural and Building Design Services',
+          'Building Design Services in Palakkad',
+          'Construction Services in Palakkad',
+          'Architectural Planning in Palakkad',
+          'House Plan Design in Palakkad',
+          'Architects in Palakkad'
+        ]}
+        schema={servicesSchema}
+      />
+
       {/* ============================================================ */}
       {/* 1. HERO BANNER - CINEMATIC LEFT-TO-RIGHT GRADIENT, NO TEXT BOX */}
       {/* ============================================================ */}
@@ -47,7 +76,7 @@ export const ServicesPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero/hero-services.jpg"
-            alt="Professional Architectural Building Design"
+            alt="Professional Architectural Design and Construction Services in Palakkad"
             className="w-full h-full object-cover object-center"
           />
           {/* Cinematic Left-to-Right Dark Gradient */}
@@ -62,16 +91,16 @@ export const ServicesPage: React.FC = () => {
             <div className="animate-hero-heading inline-flex items-center gap-2 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
               <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#C5A059] font-medium">
-                Architectural Expertise
+                Smart Homes • Palakkad, Kerala
               </span>
             </div>
-            {/* Short Heading */}
+            {/* Single H1 per page */}
             <h1 className="animate-hero-heading font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-              Our Design & Building Services.
+              Architectural Design & Construction Services in Palakkad
             </h1>
             {/* One short sentence description */}
             <p className="animate-hero-desc text-xs sm:text-sm text-[#D0CDC5] font-light leading-relaxed max-w-lg drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-              Complete architectural planning, 3D visualization, and turnkey construction solutions.
+              Explore our 12 specialized architectural and building design solutions, from custom house plans and 3D elevations to turnkey construction across Kerala.
             </p>
           </div>
         </div>
@@ -100,10 +129,10 @@ export const ServicesPage: React.FC = () => {
               >
                 <div>
                   {/* Image container with consistent 16:10 aspect ratio */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                  <Link to={`/services/${service.id}`} className="block relative aspect-[16/10] overflow-hidden bg-black">
                     <img
                       src={service.image}
-                      alt={service.title}
+                      alt={`${service.title} in Palakkad, Kerala`}
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
@@ -118,12 +147,14 @@ export const ServicesPage: React.FC = () => {
                     <div className="absolute bottom-3 left-4 w-9 h-9 rounded-lg bg-[#0B0D10]/90 border border-[#C5A059]/30 backdrop-blur-sm flex items-center justify-center shadow">
                       {getServiceIcon(service.iconName)}
                     </div>
-                  </div>
+                  </Link>
 
                   {/* Card Body */}
                   <div className="p-6 pt-4">
                     <h3 className="font-display text-lg font-bold text-[#FAF9F5] group-hover:text-[#C5A059] transition-colors mb-2.5 leading-snug">
-                      {service.title}
+                      <Link to={`/services/${service.id}`} className="hover:text-[#C5A059]">
+                        {service.title}
+                      </Link>
                     </h3>
                     <p className="text-xs sm:text-sm text-[#A6A29A] font-light leading-relaxed mb-4">
                       {service.description}
@@ -134,13 +165,18 @@ export const ServicesPage: React.FC = () => {
                 {/* Card Action */}
                 <div className="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
                   <Link
-                    to={`/contact?service=${encodeURIComponent(service.title)}`}
+                    to={`/services/${service.id}`}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#C5A059] hover:text-white transition-colors"
                   >
-                    <span>Enquire Now</span>
+                    <span>View Details</span>
                     <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </Link>
-                  <span className="text-[10px] uppercase tracking-wider text-stone-500 font-medium">Smart Homes</span>
+                  <Link
+                    to={`/contact?service=${encodeURIComponent(service.title)}`}
+                    className="text-[11px] text-[#A6A29A] hover:text-white transition-colors"
+                  >
+                    Enquire
+                  </Link>
                 </div>
               </div>
             ))}

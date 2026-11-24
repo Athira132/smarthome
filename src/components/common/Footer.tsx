@@ -127,7 +127,7 @@ export const Footer: React.FC = () => {
               {SERVICES.map((s) => (
                 <li key={s.id}>
                   <Link
-                    to="/services"
+                    to={`/services/${s.id}`}
                     className="hover:text-[#C5A059] transition-colors line-clamp-1"
                   >
                     • {s.title}

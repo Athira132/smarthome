@@ -241,139 +241,159 @@ export const GALLERY_PROJECTS: GalleryProject[] = [
     title: 'Contemporary Kerala Residence Exterior',
     subtitle: 'Modern Tropical Architecture with Geometric Accents & Warm Lighting',
     category: 'Residential Architecture',
-    image: '/images/gallery/project-1.jpg'
+    image: '/images/gallery/project-1.jpg',
+    alt: 'Contemporary Kerala house design with geometric facade and architectural exterior lighting'
   },
   {
     id: 2,
     title: 'Luxury Villa Architectural Elevation',
     subtitle: 'Contemporary Villa Design with Stone Cladding & Landscaping',
     category: 'Villa Elevation',
-    image: '/images/gallery/project-2.jpg'
+    image: '/images/gallery/project-2.jpg',
+    alt: 'Luxury modern villa elevation with stone cladding and landscaped frontage in Kerala'
   },
   {
     id: 3,
     title: 'Modern Living Space Interior',
     subtitle: 'Open-Concept Living with Custom Millwork & Ambient Lighting',
     category: 'Interior Design',
-    image: '/images/gallery/project-3.jpg'
+    image: '/images/gallery/project-3.jpg',
+    alt: 'Modern residential living room interior design with ambient ceiling lighting and wood accents'
   },
   {
     id: 4,
     title: 'Architectural House Front Facade',
     subtitle: 'Minimalist Linear Elevation with Covered Carport & Clean Edges',
     category: 'Residential Exterior',
-    image: '/images/gallery/project-4.jpg'
+    image: '/images/gallery/project-4.jpg',
+    alt: 'Minimalist residential house design featuring covered carport and clean linear architecture'
   },
   {
     id: 5,
     title: 'Modern Two-Story Family Residence',
     subtitle: 'Balcony Cantilevers & Warm Architectural Illumination',
     category: 'Residential Architecture',
-    image: '/images/gallery/project-5.jpg'
+    image: '/images/gallery/project-5.jpg',
+    alt: 'Contemporary two-story family house design with cantilevered balcony and warm exterior illumination'
   },
   {
     id: 6,
     title: 'Contemporary Home Day Elevation',
     subtitle: 'Geometric Concrete Elements & Native Landscape Integration',
     category: 'Villa Elevation',
-    image: '/images/gallery/project-6.jpg'
+    image: '/images/gallery/project-6.jpg',
+    alt: 'Modern Kerala house exterior design with geometric architectural elements and garden entrance'
   },
   {
     id: 7,
     title: 'Designer Residence Entrance View',
     subtitle: 'Wide Paved Entryway with Glass Balustrades & Contemporary Roofline',
     category: 'Residential Exterior',
-    image: '/images/gallery/project-7.jpg'
+    image: '/images/gallery/project-7.jpg',
+    alt: 'Contemporary residential house exterior with wide paved driveway and glass balcony railing'
   },
   {
     id: 8,
     title: 'Contemporary Villa Twilight Perspective',
     subtitle: 'Warm Integrated Lighting on Textured Facade & Double-Height Entry',
     category: 'Villa Architecture',
-    image: '/images/gallery/project-8.jpg'
+    image: '/images/gallery/project-8.jpg',
+    alt: 'Architectural villa design at twilight with textured wall finishes and warm integrated lighting'
   },
   {
     id: 9,
     title: 'Architectural Villa Landscaped Grounds',
     subtitle: 'Lush Tropical Surrounds Complementing Minimalist Structure',
     category: 'Landscape & Architecture',
-    image: '/images/gallery/project-9.jpg'
+    image: '/images/gallery/project-9.jpg',
+    alt: 'Modern villa design integrated with lush tropical landscaping and native garden surrounds'
   },
   {
     id: 10,
     title: 'Modern Residential Side Elevation',
     subtitle: 'Vertical Louvers & Optimized Natural Light Openings',
     category: 'Residential Architecture',
-    image: '/images/gallery/project-10.jpg'
+    image: '/images/gallery/project-10.jpg',
+    alt: 'Modern residential building design showcasing vertical louvers and natural light window apertures'
   },
   {
     id: 11,
     title: 'Premium Villa Front Perspective',
     subtitle: 'Double-Height Entrance with Stone Texture Highlights',
     category: 'Villa Elevation',
-    image: '/images/gallery/project-11.jpg'
+    image: '/images/gallery/project-11.jpg',
+    alt: 'Premium two-floor villa elevation with double-height entrance and stone texture accents'
   },
   {
     id: 12,
     title: 'Linear Contemporary House Design',
     subtitle: 'Horizontal Louvers & Expansive Glass Paneling',
     category: 'Residential Architecture',
-    image: '/images/gallery/project-12.jpg'
+    image: '/images/gallery/project-12.jpg',
+    alt: 'Linear contemporary house design with horizontal architectural louvers and glass paneling'
   },
   {
     id: 13,
     title: 'Custom Family Home Elevation',
     subtitle: 'Thoughtful Roofline & Space-Optimized Multi-Level Layout',
     category: 'Residential Exterior',
-    image: '/images/gallery/project-13.jpg'
+    image: '/images/gallery/project-13.jpg',
+    alt: 'Custom residential building design with multi-level flat rooflines and covered porch in Kerala'
   },
   {
     id: 14,
     title: 'Modern Two-Tier Villa Architecture',
     subtitle: 'Seamless Indoor-Outdoor Flow with Covered Porches',
     category: 'Villa Architecture',
-    image: '/images/gallery/project-14.jpg'
+    image: '/images/gallery/project-14.jpg',
+    alt: 'Two-tier modern villa architecture with seamless indoor-outdoor transition and paved courtyard'
   },
   {
     id: 15,
     title: 'Elegant Residential Elevation',
     subtitle: 'Contrasting Neutral Tones with Textured Finish Detail',
     category: 'Residential Architecture',
-    image: '/images/gallery/project-15.jpg'
+    image: '/images/gallery/project-15.jpg',
+    alt: 'Elegant residential house exterior featuring contrasting neutral finishes and modern parapet details'
   },
   {
     id: 16,
     title: 'Modern Villa Daytime Elevation',
     subtitle: 'Clean Symmetry & Generous Window Apertures',
     category: 'Villa Elevation',
-    image: '/images/gallery/project-16.jpg'
+    image: '/images/gallery/project-16.jpg',
+    alt: 'Daytime architectural elevation of a modern Kerala villa with balanced symmetrical facade'
   },
   {
     id: 17,
     title: 'Contemporary Multi-Level Home',
     subtitle: 'Cantilevered Overhangs & Minimalist Architectural Details',
     category: 'Residential Exterior',
-    image: '/images/gallery/project-17.jpg'
+    image: '/images/gallery/project-17.jpg',
+    alt: 'Contemporary multi-level residential building design with cantilevered overhangs and sleek balconies'
   },
   {
     id: 18,
     title: 'Modern Villa Garden Perspective',
     subtitle: 'Architectural Facade Overlooking Paved Courtyard',
     category: 'Villa Architecture',
-    image: '/images/gallery/project-18.jpg'
+    image: '/images/gallery/project-18.jpg',
+    alt: 'Modern villa architectural facade overlooking paved front courtyard and perimeter landscape'
   },
   {
     id: 19,
     title: 'Architectural Residence Frontage',
     subtitle: 'Distinct Geometric Form with Clean Edge Finishes',
     category: 'Residential Architecture',
-    image: '/images/gallery/project-19.jpg'
+    image: '/images/gallery/project-19.jpg',
+    alt: 'Modern geometric residential house design with crisp architectural lines and front entry gate'
   },
   {
     id: 20,
     title: 'Contemporary Luxury Villa Facade',
     subtitle: 'Grand Architectural Expression with Integrated Planters',
     category: 'Villa Architecture',
-    image: '/images/gallery/project-20.jpg'
+    image: '/images/gallery/project-20.jpg',
+    alt: 'Grand contemporary luxury villa exterior with built-in architectural planters and stone highlights'
   }
 ];

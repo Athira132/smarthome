@@ -90,7 +90,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
         <div className="relative overflow-hidden rounded-xl border border-[#C5A059]/30 shadow-2xl bg-[#07090B] p-2 flex items-center justify-center">
           <img
             src={currentProject.image}
-            alt="Smart Homes Architectural Project"
+            alt={currentProject.alt || `${currentProject.title} - Smart Homes Builders And Designers`}
             className="max-h-[82vh] w-auto max-w-full object-contain mx-auto"
           />
         </div>

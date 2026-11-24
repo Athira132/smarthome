@@ -16,6 +16,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { COMPANY_INFO, SERVICES, WHY_CHOOSE_US, GALLERY_PROJECTS } from '../data/companyData';
+import { SEOHead } from '../components/common/SEOHead';
 
 export const HomePage: React.FC = () => {
   const getWhyIcon = (iconName: string) => {
@@ -37,8 +38,77 @@ export const HomePage: React.FC = () => {
   const previewServices = SERVICES.slice(0, 6);
   const previewProjects = GALLERY_PROJECTS.slice(0, 3);
 
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://smarthomesbuilders.in/#website",
+        "url": "https://smarthomesbuilders.in/",
+        "name": "Smart Homes Builders And Designers",
+        "description": "Architects, Architectural Designers, House Plan Design & Building Solutions in Palakkad, Kerala",
+        "publisher": {
+          "@id": "https://smarthomesbuilders.in/#organization"
+        }
+      },
+      {
+        "@type": "HomeAndConstructionBusiness",
+        "@id": "https://smarthomesbuilders.in/#organization",
+        "name": "Smart Homes Builders And Designers",
+        "url": "https://smarthomesbuilders.in/",
+        "logo": "https://smarthomesbuilders.in/images/logo/logo-navbar.png",
+        "image": "https://smarthomesbuilders.in/images/hero/hero-architectural.jpg",
+        "telephone": "+919539221066",
+        "email": "smarthomes.bdofficial@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ansar Complex, Kodikkunnu",
+          "addressLocality": "Palakkad",
+          "addressRegion": "Kerala",
+          "postalCode": "679305",
+          "addressCountry": "IN"
+        },
+        "areaServed": [
+          "Palakkad",
+          "Kodikkunnu",
+          "Ottapalam",
+          "Pattambi",
+          "Shoranur",
+          "Cherpulassery",
+          "Palakkad District",
+          "Kerala"
+        ],
+        "sameAs": [
+          "https://www.facebook.com/smarthomessajeev/",
+          "https://www.instagram.com/smart_homes_builders",
+          "https://www.youtube.com/@smarthomeskodikkunnu"
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col w-full overflow-hidden">
+      <SEOHead
+        title="Smart Homes Builders And Designers | Architects & House Designers in Palakkad"
+        description="Smart Homes Builders And Designers offers architectural design, residential and commercial building plans, 3D elevation, interior design, building permit assistance and construction services in Palakkad, Kerala."
+        canonicalUrl="https://smarthomesbuilders.in/"
+        keywords={[
+          'Architects in Palakkad',
+          'Architectural Designers in Palakkad',
+          'House Plan Design in Palakkad',
+          'Building Designers in Palakkad',
+          'Architectural Design Services',
+          'Modern House Design in Palakkad',
+          'Residential Building Design in Palakkad',
+          'Commercial Building Design in Palakkad',
+          'House Design in Kerala',
+          'Building Plan Designers in Palakkad',
+          'Best House Designers in Palakkad'
+        ]}
+        schema={homeSchema}
+      />
+
       {/* ============================================================ */}
       {/* 1. HERO BANNER - CINEMATIC LEFT-TO-RIGHT GRADIENT, NO TEXT BOX */}
       {/* ============================================================ */}
@@ -47,7 +117,7 @@ export const HomePage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero/hero-office.jpg"
-            alt="Smart Homes Builders and Designers Office Headquarters"
+            alt="Smart Homes Builders And Designers Office Headquarters in Palakkad, Kerala"
             className="w-full h-full object-cover object-[center_35%]"
           />
           {/* Cinematic Left-to-Right Dark Gradient: Starts dark on left, dissolves smoothly toward right */}
@@ -67,14 +137,14 @@ export const HomePage: React.FC = () => {
               </span>
             </div>
 
-            {/* Short Heading (White, elegant display font, moderate size) */}
+            {/* Exact H1 for Homepage as Requested */}
             <h1 className="animate-hero-heading font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-3 sm:mb-4 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-              Designing Better Spaces.
+              Architectural Design & Building Solutions in Palakkad
             </h1>
 
             {/* One Short Sentence Description */}
             <p className="animate-hero-desc text-xs sm:text-sm text-[#D0CDC5] font-light leading-relaxed mb-6 max-w-md drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-              Thoughtfully designed spaces and quality construction solutions that turn your vision into reality.
+              Smart Homes Builders And Designers offers architectural design, residential and commercial building plans, 3D elevation, interior design, building permit assistance and construction services in Palakkad, Kerala.
             </p>
 
             {/* Minimal Action Buttons */}
@@ -170,13 +240,13 @@ export const HomePage: React.FC = () => {
 
               <div className="space-y-4 text-sm sm:text-base text-[#D0CDC5] font-light leading-relaxed mb-8">
                 <p>
-                  <strong className="text-white font-medium">Smart Homes Builders and Designers</strong> is a full-service architecture and design firm specializing in cost-effective building design.
+                  <strong className="text-white font-medium">Smart Homes Builders And Designers</strong> is a dedicated team of architects, architectural designers, and building designers in Palakkad, Kerala specializing in cost-effective house plan design, modern residential architecture, and turnkey construction.
                 </p>
                 <p>
                   We believe that exceptional architecture should be accessible to everyone. Our goal is to create beautiful, functional and thoughtfully planned spaces while respecting our clients' budgets.
                 </p>
                 <p>
-                  From architectural planning and 3D design to interior design, construction supervision and project execution, we bring together experience and creativity to make your dream spaces a reality.
+                  From house plan design and 3D elevations to interior design, building permit approvals, and construction supervision, our architectural designers in Palakkad bring together experience and creativity to make your dream spaces a reality.
                 </p>
               </div>
 
@@ -184,7 +254,7 @@ export const HomePage: React.FC = () => {
                 to="/about"
                 className="inline-flex items-center gap-3 px-6 py-3.5 rounded bg-white/5 hover:bg-[#C5A059] text-white hover:text-[#0B0D10] border border-[#C5A059]/40 hover:border-[#C5A059] text-xs uppercase tracking-widest font-semibold transition-all duration-300"
               >
-                <span>About Us</span>
+                <span>About Our Architecture Firm</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -262,19 +332,21 @@ export const HomePage: React.FC = () => {
                 key={service.id}
                 className="group rounded-xl overflow-hidden bg-[#12161C] border border-white/10 hover:border-[#C5A059]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col"
               >
-                <div className="relative h-56 overflow-hidden">
+                <Link to={`/services/${service.id}`} className="block relative h-56 overflow-hidden">
                   <img
                     src={service.image}
-                    alt={service.title}
+                    alt={`${service.title} in Palakkad, Kerala`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#12161C] via-transparent to-transparent opacity-80" />
-                </div>
+                </Link>
 
                 <div className="p-6 flex flex-col flex-1 justify-between">
                   <div>
                     <h3 className="font-display text-lg font-bold text-[#FAF9F5] group-hover:text-[#C5A059] transition-colors mb-2">
-                      {service.title}
+                      <Link to={`/services/${service.id}`} className="hover:text-[#C5A059]">
+                        {service.title}
+                      </Link>
                     </h3>
                     <p className="text-xs sm:text-sm text-[#A6A29A] leading-relaxed mb-6 font-light">
                       {service.description}
@@ -282,10 +354,10 @@ export const HomePage: React.FC = () => {
                   </div>
 
                   <Link
-                    to="/services"
+                    to={`/services/${service.id}`}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider text-[#C5A059] group-hover:text-white transition-colors"
                   >
-                    <span>Explore Service</span>
+                    <span>Explore Service Details</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

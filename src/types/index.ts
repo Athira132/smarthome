@@ -6,12 +6,25 @@ export interface ServiceItem {
   iconName: string;
 }
 
+export interface ServiceDetail extends ServiceItem {
+  seoTitle: string;
+  metaDescription: string;
+  h1: string;
+  primaryKeywords: string[];
+  supportingKeywords: string[];
+  longDescription: string[];
+  features: string[];
+  processSteps: { title: string; description: string }[];
+  relatedServiceIds: string[];
+}
+
 export interface GalleryProject {
   id: number;
   title: string;
   subtitle: string;
   category: string;
   image: string;
+  alt?: string;
 }
 
 export interface WhyChooseUsItem {
