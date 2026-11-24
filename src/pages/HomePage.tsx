@@ -336,11 +336,11 @@ export const HomePage: React.FC = () => {
                 to="/gallery"
                 className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-[#C5A059]/50 transition-all duration-300 block"
               >
-                <div className="aspect-[3/2] overflow-hidden bg-black">
+                <div className="aspect-[4/3] overflow-hidden bg-[#07090B] flex items-center justify-center p-2">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-5 bg-[#0D1014] flex flex-col justify-between">

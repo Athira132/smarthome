@@ -53,7 +53,7 @@ export const GalleryPage: React.FC = () => {
       </section>
 
       {/* ============================================================ */}
-      {/* 2. GALLERY GRID (EXACTLY 6 IMAGES, 3 PER ROW ON DESKTOP, 2 ROWS) */}
+      {/* 2. GALLERY GRID (20 IMAGES - UNIFORM EQUAL DIMENSIONS & CONTAIN) */}
       {/* ============================================================ */}
       <section className="py-20 sm:py-24 bg-[#0B0D10] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,7 +61,7 @@ export const GalleryPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between pb-6 mb-10 border-b border-white/10 gap-3">
             <div className="flex items-center gap-2 text-xs font-mono text-[#A6A29A]">
               <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
-              <span>Displaying 6 architectural projects (3 per row)</span>
+              <span>Displaying 20 architectural projects</span>
             </div>
 
             <div className="flex items-center gap-1.5 text-xs text-[#C5A059] font-medium tracking-wide">
@@ -70,35 +70,32 @@ export const GalleryPage: React.FC = () => {
             </div>
           </div>
 
-          {/* EXACTLY 3 IMAGES PER ROW ON DESKTOP - 2 ROWS TOTAL */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* 20 GALLERY IMAGES - 3 PER ROW DESKTOP, 2 TABLET, 1 MOBILE */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {GALLERY_PROJECTS.map((project, index) => (
               <div
                 key={project.id}
                 onClick={() => openLightbox(index)}
                 className="group relative cursor-pointer rounded-2xl overflow-hidden bg-[#12161C] border border-white/10 hover:border-[#C5A059] transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/70 flex flex-col"
               >
-                {/* 3:2 Aspect Ratio Container */}
-                <div className="relative aspect-[3/2] overflow-hidden bg-black">
+                {/* Fixed Uniform Aspect Ratio Container with Dark Background - object-contain prevents cropping */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#07090B] flex items-center justify-center p-2.5">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                    className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     loading="lazy"
                   />
 
-                  {/* Dark subtle vignette overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
-
-                  {/* Hover Quick Expand Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Dark subtle hover overlay with Expand Icon */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[1px]">
                     <div className="w-12 h-12 rounded-full bg-[#0D1014]/90 border border-[#C5A059] flex items-center justify-center text-[#C5A059] shadow-xl transform scale-75 group-hover:scale-100 transition-transform">
                       <Maximize2 className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Top Category Badge */}
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#080A0C]/80 backdrop-blur-md border border-white/15 text-[10px] font-sans uppercase tracking-widest text-stone-300 font-medium">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#080A0C]/85 backdrop-blur-md border border-white/15 text-[10px] font-sans uppercase tracking-widest text-[#FAF9F5] font-medium shadow-md">
                     {project.category}
                   </div>
                 </div>
@@ -109,14 +106,14 @@ export const GalleryPage: React.FC = () => {
                     {project.title}
                   </h3>
                   <span className="text-[10px] font-mono text-[#A6A29A] shrink-0 ml-2">
-                    0{index + 1}/06
+                    {String(index + 1).padStart(2, '0')}/20
                   </span>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Quick Note about replacing images */}
+          {/* Quick Note about authentic projects */}
           <div className="mt-14 p-6 rounded-xl bg-[#0D1014] border border-white/10 text-center max-w-2xl mx-auto">
             <p className="text-xs text-[#8E8A82] leading-relaxed">
               Every project preview is authenticated with the official <span className="text-[#C5A059]">Smart Homes Builders and Designers</span> insignia. Additional completed project documentation and blueprints are available during personalized studio consultations.

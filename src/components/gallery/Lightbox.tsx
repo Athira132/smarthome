@@ -69,8 +69,8 @@ export const Lightbox: React.FC<LightboxProps> = ({
         </div>
 
         <div className="flex items-center gap-4">
-          <span className="text-xs font-mono text-[#A8A49D] px-2.5 py-1 rounded bg-white/5 border border-white/10">
-            {currentIndex + 1} / {images.length}
+          <span className="text-xs font-mono text-[#C5A059] px-3 py-1 rounded-full bg-white/5 border border-white/10 font-medium">
+            {String(currentIndex + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
           </span>
           <button
             onClick={onClose}
@@ -101,8 +101,8 @@ export const Lightbox: React.FC<LightboxProps> = ({
       </button>
 
       {/* Main Image Container */}
-      <div className="relative max-w-5xl max-h-[82vh] w-full mx-4 sm:mx-12 flex flex-col items-center justify-center">
-        <div className="relative overflow-hidden rounded-xl border border-[#C5A059]/30 shadow-2xl bg-black">
+      <div className="relative max-w-5xl max-h-[85vh] w-full mx-4 sm:mx-12 flex flex-col items-center justify-center">
+        <div className="relative overflow-hidden rounded-xl border border-[#C5A059]/30 shadow-2xl bg-[#07090B] p-2 flex items-center justify-center">
           <img
             src={currentProject.image}
             alt={currentProject.title}
@@ -111,8 +111,11 @@ export const Lightbox: React.FC<LightboxProps> = ({
         </div>
 
         {/* Caption bar */}
-        <div className="mt-3 text-center">
-          <p className="text-xs sm:text-sm text-[#A8A49D]">
+        <div className="mt-3 text-center px-4">
+          <p className="text-xs sm:text-sm text-[#FAF9F5] font-medium">
+            {currentProject.title}
+          </p>
+          <p className="text-[11px] sm:text-xs text-[#A8A49D] mt-0.5">
             {currentProject.subtitle}
           </p>
         </div>
