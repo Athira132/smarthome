@@ -53,15 +53,15 @@ export const GalleryPage: React.FC = () => {
       </section>
 
       {/* ============================================================ */}
-      {/* 2. GALLERY GRID (20 IMAGES - UNIFORM EQUAL DIMENSIONS & CONTAIN) */}
+      {/* 2. GALLERY GRID (20 IMAGES - EXACTLY 2 PER ROW ON MOBILE, 3 PER ROW DESKTOP) */}
       {/* ============================================================ */}
-      <section className="py-20 sm:py-24 bg-[#0B0D10] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20 lg:py-24 bg-[#0B0D10] relative">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           {/* Header Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between pb-6 mb-10 border-b border-white/10 gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-between pb-6 mb-8 sm:mb-10 border-b border-white/10 gap-3">
             <div className="flex items-center gap-2 text-xs font-mono text-[#A6A29A]">
               <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
-              <span>Displaying 20 architectural projects</span>
+              <span>Architectural Portfolio Showcase</span>
             </div>
 
             <div className="flex items-center gap-1.5 text-xs text-[#C5A059] font-medium tracking-wide">
@@ -70,51 +70,36 @@ export const GalleryPage: React.FC = () => {
             </div>
           </div>
 
-          {/* 20 GALLERY IMAGES - 3 PER ROW DESKTOP, 2 TABLET, 1 MOBILE */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* 20 GALLERY IMAGES - 2 COLUMNS ON MOBILE, 3 COLUMNS ON DESKTOP - NO LABELS OR TEXT */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {GALLERY_PROJECTS.map((project, index) => (
               <div
                 key={project.id}
                 onClick={() => openLightbox(index)}
-                className="group relative cursor-pointer rounded-2xl overflow-hidden bg-[#12161C] border border-white/10 hover:border-[#C5A059] transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/70 flex flex-col"
+                className="group relative cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden bg-[#12161C] border border-white/10 hover:border-[#C5A059] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/70 flex flex-col"
               >
                 {/* Fixed Uniform Aspect Ratio Container with Dark Background - object-contain prevents cropping */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#07090B] flex items-center justify-center p-2.5">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#07090B] flex items-center justify-center p-1.5 sm:p-2.5">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt="Smart Homes Architectural Project"
                     className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     loading="lazy"
                   />
 
-                  {/* Dark subtle hover overlay with Expand Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[1px]">
-                    <div className="w-12 h-12 rounded-full bg-[#0D1014]/90 border border-[#C5A059] flex items-center justify-center text-[#C5A059] shadow-xl transform scale-75 group-hover:scale-100 transition-transform">
-                      <Maximize2 className="w-5 h-5" />
+                  {/* Subtle hover icon overlay (NO text, NO labels) */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30">
+                    <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#0D1014]/90 border border-[#C5A059] flex items-center justify-center text-[#C5A059] shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                      <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                   </div>
-
-                  {/* Top Category Badge */}
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded bg-[#080A0C]/85 backdrop-blur-md border border-white/15 text-[10px] font-sans uppercase tracking-widest text-[#FAF9F5] font-medium shadow-md">
-                    {project.category}
-                  </div>
-                </div>
-
-                {/* Card Title Label */}
-                <div className="p-4 bg-[#101318] border-t border-white/5 flex items-center justify-between">
-                  <h3 className="font-display text-sm font-semibold text-[#FAF9F5] group-hover:text-[#C5A059] transition-colors truncate">
-                    {project.title}
-                  </h3>
-                  <span className="text-[10px] font-mono text-[#A6A29A] shrink-0 ml-2">
-                    {String(index + 1).padStart(2, '0')}/20
-                  </span>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Quick Note about authentic projects */}
-          <div className="mt-14 p-6 rounded-xl bg-[#0D1014] border border-white/10 text-center max-w-2xl mx-auto">
+          <div className="mt-12 sm:mt-14 p-5 sm:p-6 rounded-xl bg-[#0D1014] border border-white/10 text-center max-w-2xl mx-auto">
             <p className="text-xs text-[#8E8A82] leading-relaxed">
               Every project preview is authenticated with the official <span className="text-[#C5A059]">Smart Homes Builders and Designers</span> insignia. Additional completed project documentation and blueprints are available during personalized studio consultations.
             </p>
