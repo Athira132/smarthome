@@ -158,9 +158,6 @@ export const Footer: React.FC = () => {
                 <a href={`tel:${COMPANY_INFO.phones[0].raw}`} className="hover:text-[#C5A059] transition-colors font-medium">
                   {COMPANY_INFO.phones[0].display}
                 </a>
-                <a href={`tel:${COMPANY_INFO.phones[1].raw}`} className="hover:text-[#C5A059] transition-colors font-medium">
-                  {COMPANY_INFO.phones[1].display}
-                </a>
               </div>
             </div>
 
@@ -169,9 +166,6 @@ export const Footer: React.FC = () => {
               <div className="flex flex-col">
                 <a href={`mailto:${COMPANY_INFO.emails[0]}`} className="hover:text-[#C5A059] transition-colors">
                   {COMPANY_INFO.emails[0]}
-                </a>
-                <a href={`mailto:${COMPANY_INFO.emails[1]}`} className="hover:text-[#C5A059] transition-colors">
-                  {COMPANY_INFO.emails[1]}
                 </a>
               </div>
             </div>

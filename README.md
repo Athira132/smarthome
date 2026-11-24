@@ -42,12 +42,13 @@ Official website for **Smart Homes Builders and Designers**, an architecture and
 
 4. **Persistent Contact Accessibility**:
    - Floating WhatsApp button (`+91 96458 93458`) for instant messaging.
-   - Floating Phone Call button (`+91 96458 93458`).
+   - Floating Phone Call button (`+91 95392 21066`).
 
 5. **Contact & Location**:
    - Full office address in Ansar Complex, Kodikkunnu, Palakkad, Kerala – 679305.
-   - Direct phone lines (`+91 96458 93458`, `+91 95392 21066`).
-   - Official emails (`sajeevpakkath@gmail.com`, `smartbuilders7@gmail.com`).
+   - Primary phone: `+91 95392 21066`.
+   - WhatsApp: `+91 96458 93458`.
+   - Official email: `smarthomes.bdofficial@gmail.com`.
    - Embedded interactive Google Map.
    - Business Hours: Monday – Saturday: 9:00 AM – 7:00 PM (Sunday: Holiday).
    - Complete contact inquiry form with client-side validation and feedback states.
@@ -94,5 +95,6 @@ npm run preview
 **Smart Homes Builders and Designers**  
 Ansar Complex, Kodikkunnu,  
 Palakkad District, Kerala – 679305, India  
-Phone: +91 96458 93458 / +91 95392 21066  
-Email: sajeevpakkath@gmail.com / smartbuilders7@gmail.com
+Primary Contact: +91 95392 21066  
+WhatsApp: +91 96458 93458  
+Email: smarthomes.bdofficial@gmail.com

@@ -17,12 +17,10 @@ export const COMPANY_INFO = {
     fullFormatted: 'Ansar Complex, Kodikkunnu, Palakkad District, Kerala – 679305, India'
   },
   emails: [
-    'sajeevpakkath@gmail.com',
-    'smartbuilders7@gmail.com'
+    'smarthomes.bdofficial@gmail.com'
   ],
   phones: [
-    { display: '+91 96458 93458', raw: '9645893458', primary: true },
-    { display: '+91 95392 21066', raw: '9539221066', primary: false }
+    { display: '+91 95392 21066', raw: '9539221066', primary: true }
   ],
   whatsapp: {
     number: '9645893458',

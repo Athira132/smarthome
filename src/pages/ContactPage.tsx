@@ -187,41 +187,52 @@ export const ContactPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Phones */}
+                {/* Primary Call / Phone */}
                 <div className="p-5 rounded-xl bg-[#12161C] border border-white/10 flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-[#C5A059]/15 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-xs font-semibold uppercase tracking-wider text-white mb-1">
-                      Direct Phone Lines
+                      Primary Contact Number
                     </h3>
                     <div className="flex flex-col gap-1 text-xs sm:text-sm">
                       <a href={`tel:${COMPANY_INFO.phones[0].raw}`} className="text-[#D0CDC5] hover:text-[#C5A059] transition-colors font-medium">
-                        +91 {COMPANY_INFO.phones[0].raw} (Primary)
-                      </a>
-                      <a href={`tel:${COMPANY_INFO.phones[1].raw}`} className="text-[#D0CDC5] hover:text-[#C5A059] transition-colors font-medium">
-                        +91 {COMPANY_INFO.phones[1].raw}
+                        {COMPANY_INFO.phones[0].display}
                       </a>
                     </div>
                   </div>
                 </div>
 
-                {/* Emails */}
+                {/* WhatsApp */}
+                <div className="p-5 rounded-xl bg-[#12161C] border border-white/10 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] shrink-0">
+                    <MessageSquare className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-white mb-1">
+                      WhatsApp Chat
+                    </h3>
+                    <div className="flex flex-col gap-1 text-xs sm:text-sm">
+                      <a href={COMPANY_INFO.whatsapp.url} target="_blank" rel="noopener noreferrer" className="text-[#D0CDC5] hover:text-[#25D366] transition-colors font-medium">
+                        +91 {COMPANY_INFO.whatsapp.number}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Email */}
                 <div className="p-5 rounded-xl bg-[#12161C] border border-white/10 flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-[#C5A059]/15 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-xs font-semibold uppercase tracking-wider text-white mb-1">
-                      Email Correspondence
+                      Official Email
                     </h3>
                     <div className="flex flex-col gap-1 text-xs sm:text-sm">
                       <a href={`mailto:${COMPANY_INFO.emails[0]}`} className="text-[#D0CDC5] hover:text-[#C5A059] transition-colors">
                         {COMPANY_INFO.emails[0]}
-                      </a>
-                      <a href={`mailto:${COMPANY_INFO.emails[1]}`} className="text-[#D0CDC5] hover:text-[#C5A059] transition-colors">
-                        {COMPANY_INFO.emails[1]}
                       </a>
                     </div>
                   </div>
