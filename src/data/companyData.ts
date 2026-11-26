@@ -235,6 +235,17 @@ export const OUR_APPROACH: ApproachStep[] = [
   }
 ];
 
+export const FEATURED_YOUTUBE_VIDEO: GalleryProject = {
+  id: 0,
+  title: 'Smart Homes Builders And Designers Project Showcase Video',
+  subtitle: 'Architectural Design & Construction Video Showcase',
+  category: 'Project Video',
+  image: 'https://i.ytimg.com/vi/-6istUMZvI4/maxresdefault.jpg',
+  alt: 'Smart Homes Builders And Designers Architectural Project Video Showcase',
+  type: 'video',
+  youtubeId: '-6istUMZvI4'
+};
+
 export const GALLERY_PROJECTS: GalleryProject[] = [
   {
     id: 1,

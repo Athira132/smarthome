@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -15,10 +16,15 @@ import {
   Sparkles,
   ChevronRight
 } from 'lucide-react';
-import { COMPANY_INFO, SERVICES, WHY_CHOOSE_US, GALLERY_PROJECTS } from '../data/companyData';
+import { COMPANY_INFO, SERVICES, WHY_CHOOSE_US, GALLERY_PROJECTS, FEATURED_YOUTUBE_VIDEO } from '../data/companyData';
 import { SEOHead } from '../components/common/SEOHead';
+import { PortfolioCard } from '../components/gallery/PortfolioCard';
+import { Lightbox } from '../components/gallery/Lightbox';
 
 export const HomePage: React.FC = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeMediaIndex, setActiveMediaIndex] = useState(0);
+
   const getWhyIcon = (iconName: string) => {
     switch (iconName) {
       case 'Coins': return <Coins className="w-5 h-5 text-[#C5A059]" />;
@@ -37,6 +43,12 @@ export const HomePage: React.FC = () => {
 
   const previewServices = SERVICES.slice(0, 6);
   const previewProjects = GALLERY_PROJECTS.slice(0, 3);
+  const previewMedia = [FEATURED_YOUTUBE_VIDEO, ...previewProjects];
+
+  const openLightbox = (index: number) => {
+    setActiveMediaIndex(index);
+    setLightboxOpen(true);
+  };
 
   const homeSchema = {
     "@context": "https://schema.org",
@@ -401,35 +413,13 @@ export const HomePage: React.FC = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {previewProjects.map((project) => (
-              <Link
-                key={project.id}
-                to="/gallery"
-                className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-[#C5A059]/50 transition-all duration-300 block"
-              >
-                <div className="aspect-[4/3] overflow-hidden bg-[#07090B] flex items-center justify-center p-2">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-5 bg-[#0D1014] flex flex-col justify-between">
-                  <div>
-                    <span className="text-[10px] uppercase tracking-widest text-[#C5A059] font-medium block mb-1">
-                      {project.category}
-                    </span>
-                    <h3 className="font-display text-base font-semibold text-white group-hover:text-[#C5A059] transition-colors line-clamp-1">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <span className="text-xs text-[#A6A29A] mt-2 inline-flex items-center gap-1 group-hover:text-white transition-colors">
-                    <span>View in Lightbox</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" />
-                  </span>
-                </div>
-              </Link>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            {previewMedia.map((item, index) => (
+              <PortfolioCard
+                key={item.id}
+                item={item}
+                onClick={() => openLightbox(index)}
+              />
             ))}
           </div>
         </div>
@@ -497,6 +487,14 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <Lightbox
+        images={previewMedia}
+        currentIndex={activeMediaIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onNavigate={(newIndex) => setActiveMediaIndex(newIndex)}
+      />
     </div>
   );
 };

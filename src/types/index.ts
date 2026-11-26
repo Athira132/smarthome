@@ -25,6 +25,8 @@ export interface GalleryProject {
   category: string;
   image: string;
   alt?: string;
+  type?: 'image' | 'video';
+  youtubeId?: string;
 }
 
 export interface WhyChooseUsItem {

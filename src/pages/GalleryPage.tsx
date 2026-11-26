@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { Maximize2, ShieldCheck } from 'lucide-react';
-import { GALLERY_PROJECTS } from '../data/companyData';
+import { ShieldCheck } from 'lucide-react';
+import { FEATURED_YOUTUBE_VIDEO, GALLERY_PROJECTS } from '../data/companyData';
 import { Lightbox } from '../components/gallery/Lightbox';
+import { PortfolioCard } from '../components/gallery/PortfolioCard';
 import { SEOHead } from '../components/common/SEOHead';
 
 export const GalleryPage: React.FC = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const galleryItems = [FEATURED_YOUTUBE_VIDEO, ...GALLERY_PROJECTS];
 
   const openLightbox = (index: number) => {
     setActiveImageIndex(index);
@@ -101,31 +104,14 @@ export const GalleryPage: React.FC = () => {
             </div>
           </div>
 
-          {/* 20 GALLERY IMAGES - 2 COLUMNS ON MOBILE, 3 COLUMNS ON DESKTOP - NO LABELS OR TEXT */}
+          {/* VIDEO FIRST (FULL ROW ON MOBILE) + 20 GALLERY IMAGES - 2 COLUMNS ON MOBILE, 3 COLUMNS ON DESKTOP - NO LABELS OR TEXT */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-            {GALLERY_PROJECTS.map((project, index) => (
-              <div
-                key={project.id}
+            {galleryItems.map((item, index) => (
+              <PortfolioCard
+                key={item.id}
+                item={item}
                 onClick={() => openLightbox(index)}
-                className="group relative cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden bg-[#12161C] border border-white/10 hover:border-[#C5A059] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/70 flex flex-col"
-              >
-                {/* Fixed Uniform Aspect Ratio Container with Dark Background - object-contain prevents cropping */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#07090B] flex items-center justify-center p-1.5 sm:p-2.5">
-                  <img
-                    src={project.image}
-                    alt={project.alt || `${project.title} - House Design in Kerala by Smart Homes`}
-                    className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-
-                  {/* Subtle hover icon overlay (NO text, NO labels) */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30">
-                    <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#0D1014]/90 border border-[#C5A059] flex items-center justify-center text-[#C5A059] shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
-                      <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              />
             ))}
           </div>
 
@@ -142,7 +128,7 @@ export const GalleryPage: React.FC = () => {
       {/* 3. LIGHTBOX COMPONENT */}
       {/* ============================================================ */}
       <Lightbox
-        images={GALLERY_PROJECTS}
+        images={galleryItems}
         currentIndex={activeImageIndex}
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}

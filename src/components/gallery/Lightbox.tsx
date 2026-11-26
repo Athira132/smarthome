@@ -49,17 +49,23 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
   if (!isOpen || !currentProject) return null;
 
+  const isVideo = currentProject.type === 'video' && Boolean(currentProject.youtubeId);
+
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Image preview lightbox"
+      aria-label={isVideo ? 'Video preview lightbox' : 'Image preview lightbox'}
+      onClick={onClose}
       className="fixed inset-0 z-50 flex items-center justify-center bg-[#07090B]/95 backdrop-blur-xl animate-fade-in select-none"
     >
       {/* Top Bar with Close button only - NO titles, NO labels, NO captions */}
       <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex items-center justify-end z-20 pointer-events-none">
         <button
-          onClick={onClose}
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
           className="p-2 sm:p-2.5 rounded-full bg-white/10 hover:bg-[#C5A059] text-white hover:text-[#0B0D10] transition-colors focus:outline-none pointer-events-auto shadow-lg"
           aria-label="Close lightbox"
         >
@@ -69,31 +75,53 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
       {/* Prev Button */}
       <button
-        onClick={handlePrev}
+        onClick={(e) => {
+          e.stopPropagation();
+          handlePrev();
+        }}
         className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-black/60 hover:bg-[#C5A059] text-white hover:text-[#0B0D10] border border-white/15 transition-all z-20 focus:outline-none active:scale-95"
-        aria-label="Previous image"
+        aria-label="Previous item"
       >
         <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
       </button>
 
       {/* Next Button */}
       <button
-        onClick={handleNext}
+        onClick={(e) => {
+          e.stopPropagation();
+          handleNext();
+        }}
         className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-black/60 hover:bg-[#C5A059] text-white hover:text-[#0B0D10] border border-white/15 transition-all z-20 focus:outline-none active:scale-95"
-        aria-label="Next image"
+        aria-label="Next item"
       >
         <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
       </button>
 
-      {/* Main Image Container - Pure photograph with watermark, no text overlays */}
-      <div className="relative max-w-5xl max-h-[90vh] w-full mx-4 sm:mx-12 flex flex-col items-center justify-center">
-        <div className="relative overflow-hidden rounded-xl border border-[#C5A059]/30 shadow-2xl bg-[#07090B] p-2 flex items-center justify-center">
-          <img
-            src={currentProject.image}
-            alt={currentProject.alt || `${currentProject.title} - Smart Homes Builders And Designers`}
-            className="max-h-[82vh] w-auto max-w-full object-contain mx-auto"
-          />
-        </div>
+      {/* Main Media Container - Embedded 16:9 YouTube Player or Pure Photograph, no text overlays */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative max-w-5xl max-h-[90vh] w-full mx-4 sm:mx-14 flex flex-col items-center justify-center"
+      >
+        {isVideo ? (
+          <div className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden border border-[#C5A059]/30 shadow-2xl bg-black">
+            <iframe
+              key={currentProject.youtubeId}
+              src={`https://www.youtube.com/embed/${currentProject.youtubeId}?autoplay=1&rel=0`}
+              title={currentProject.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full border-0"
+            />
+          </div>
+        ) : (
+          <div className="relative overflow-hidden rounded-xl border border-[#C5A059]/30 shadow-2xl bg-[#07090B] p-2 flex items-center justify-center">
+            <img
+              src={currentProject.image}
+              alt={currentProject.alt || `${currentProject.title} - Smart Homes Builders And Designers`}
+              className="max-h-[82vh] w-auto max-w-full object-contain mx-auto"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
